@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 /* import { useSelector } from 'react-redux';
  */
 
+
+
 function Home() {
 
   const tweets = useSelector((state) => state.tweets.value)
@@ -17,25 +19,63 @@ function Home() {
     <div>
       <main className={styles.main}>
 
+      {/* HOME - LEFT */}
+
       <div className={styles.homeLeft}>
-      <img className={styles.logo} src='./twitter-logo.png' />
+        
+        <div>
+        <img className={styles.logo} src='./twitter-logo.png' />
+        </div>
+        <div className={styles.userInfo} >
+          <p>userInfo</p>
+        </div>
       </div>
 
+
+      {/* HOME - CENTER */}
       <div className={styles.homeCenter}>
+
+        <h2 className={styles.title}>
+          Home
+        </h2>
 
         <div>
           <Tweet />
         </div>
-        
+
         <div>
       {/* {lastTweetsComponents} */}
       <p>CENTER PART 2</p>
+
+          <div>
+              <div className={styles.headerTweet}>
+              <div className={styles.profilIcon}>
+                <img src="./profilPicture.jpg" className={styles.profilPictureIcon} />
+              </div>  
+              ProfilPicture
+              Chloé
+              Daaafunk          
+                  <div>{/* Il y a 5 heures */}</div>
+              </div>
+              <div className={styles.tweetContent}>
+                  CONTENT
+              </div>
+              <div className={styles.tweetLike}>
+                  LIKE
+              </div>
+          </div>
+
         </div>
 
       </div>
 
+
+      {/* HOME - RIGHT */}
         <div className={styles.homeRight}>
-        <h2>Trends</h2>
+          <h2 className={styles.title}>Trends</h2>
+          <div>
+
+          </div>
         </div>
       </main>
     </div>

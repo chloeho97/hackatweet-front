@@ -47,9 +47,12 @@
 .tweetBar {
     width: 100%; 
     box-sizing: border-box; 
-    padding: 10px; 
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 10px;
     border: none;
-    border-bottom:  2px solid grey;
+    border-bottom: 2px solid grey;
+    background-color: #151F2B;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+

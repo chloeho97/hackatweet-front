@@ -23,12 +23,17 @@ function Tweet() {
   return (
     <div>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          HOME
-        </h1>
+
         
         <div className={styles.newTweetContainer}>
-          <input className={styles.tweetBar} type="text" placeholder="What's up" id="newTweet"  maxlength="280" onChange={(e) => setNewTweet(e.target.value)} value={newTweet} />
+          <textarea 
+          className={styles.tweetBar} 
+          type="text" 
+          placeholder="What's up" 
+          id="newTweet"  
+          maxLength="280" 
+          style={{ resize: 'both', overflow: 'auto' }} 
+          onChange={(e) => setNewTweet(e.target.value)} value={newTweet} />
           <div className={styles.barBottom}>
             <p> {countCaracter()}/ 280</p>
             <button className={styles.btnTweet} id="addNewTweet" onClick={() => handleTweet()}>Tweet</button>
