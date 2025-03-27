@@ -19,6 +19,20 @@ function LastTweets(props) {
     dispatch(likedTweet(props.id))
   }
 
+  const formatTimeSince = (timestamp) => {
+    const now = Date.now(); // Obtenir le temps actuel en millisecondes
+    const timeSince = now - timestamp; // Différence entre maintenant et le timestamp
+  
+    const minutes = Math.floor(timeSince / 60000); 
+    const hours = Math.floor(minutes / 60); 
+  
+    if (timeSince < 3600000) { // Moins d'une heure
+      return `${minutes} minutes`;
+    } else {
+      return `${hours} heures`; // Arrondi à l'heure inférieure
+    }
+  };
+
   return (
     <div>
     <div className={styles.headerTweet}>
@@ -27,7 +41,7 @@ function LastTweets(props) {
       </div>  
       {props.firstname}      
       {props.username}   
-      <div>{/* Il y a 5 heures */}</div>
+      <div> Il y a {formatTimeSince(props.id)} </div>
     </div>
     <div className={styles.tweetContent}>
       {props.tweetContent}
