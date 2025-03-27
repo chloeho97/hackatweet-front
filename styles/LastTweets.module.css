@@ -1,0 +1,28 @@
+/* A COPIER DANS LAST TWEET MODULE CSS */
+
+.profilIcon {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .profilPitureIcon {
+    width: auto; 
+    height: 100%;
+    object-fit: contain; 
+    object-position: left;}
+  
+  .headerTweet {
+    display: flex;
+    align-items: center;
+  }
+
+  .liked {
+    color : red;
+  }
+
+  .unliked {
+    color:white;
+  }
