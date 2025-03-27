@@ -2,12 +2,20 @@ import styles from '../styles/Home.module.css';
 import Tweet from './Tweet'
 import LastTweets from './LastTweets'
 import { useSelector } from 'react-redux';
+
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
 /* import { useSelector } from 'react-redux';
  */
 
 
-
 function Home() {
+
+/*   const dispatch = useDispatch(); */
+/* 
+  const isConnected = useSelector((state) => state.user.value); */
 
   const tweets = useSelector((state) => state.tweets.value)
 
@@ -17,6 +25,7 @@ function Home() {
 
   return (
     <div>
+      
       <main className={styles.main}>
 
       {/* HOME - LEFT */}
@@ -46,24 +55,6 @@ function Home() {
         <div>
       {/* {lastTweetsComponents} */}
       <p>CENTER PART 2</p>
-
-          <div>
-              <div className={styles.headerTweet}>
-              <div className={styles.profilIcon}>
-                <img src="./profilPicture.jpg" className={styles.profilPictureIcon} />
-              </div>  
-              ProfilPicture
-              Chloé
-              Daaafunk          
-                  <div>{/* Il y a 5 heures */}</div>
-              </div>
-              <div className={styles.tweetContent}>
-                  CONTENT
-              </div>
-              <div className={styles.tweetLike}>
-                  LIKE
-              </div>
-          </div>
 
         </div>
 

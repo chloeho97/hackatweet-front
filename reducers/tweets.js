@@ -12,13 +12,15 @@ export const tweetsSlice = createSlice({
 			state.value.push({
 				firstname : action.payload.firstname,
 				username : action.payload.username,
-				profilPicture : action.payload.profilPicture,
 				tweetContent : action.payload.tweetContent,
 				id : Date.now(), // Unique ID pour chaque tweet
 				});
 		},
+		removeTweet: (state,action) => {
+		state.value = state.value.filter(tweet => tweet.id !== action.payload.title);
+		}
 	},
 });
 
-export const { addNewTweet } = tweetsSlice.actions;
+export const { addNewTweet, removeTweet } = tweetsSlice.actions;
 export default tweetsSlice.reducer;

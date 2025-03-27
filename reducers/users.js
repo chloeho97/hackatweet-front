@@ -1,24 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	value: [],
+	value: { token: null, username: null, firstname : null },
 };
 
 export const usersSlice = createSlice({
 	name: 'users',
 	initialState,
 	reducers: {
-		addNewTweet: (state, action) => {
+	login : (state, action) => {
 			state.value.push({
 				firstname : action.payload.firstname,
 				username : action.payload.username,
-				profilPicture : action.payload.profilPicture,
-				tweetContent : action.payload.tweetContent,
-				id : Date.now(), // Unique ID pour chaque tweet
+				token : action.payload.token, 
 				});
 		},
-	},
+	    logout: (state) => {
+			state.value.token = null;
+			state.value.username = null;
+			state.value.firstname = null;
+	}},
 });
 
-export const { addNewTweet } = usersSlice.actions;
+export const { login , logout } = usersSlice.actions;
 export default usersSlice.reducer;
