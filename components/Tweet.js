@@ -6,12 +6,17 @@ import { addNewTweet } from '../reducers/tweets';
 function Tweet() {
 
   const dispatch = useDispatch();
-	const tweets = useSelector((state) => state.tweets.value);
+
+
+  const username =  useSelector((state) => state.users.value.username);
+  const firstname =  useSelector((state) => state.users.value.firstname);
+  const token =  useSelector((state) => state.users.value.token);
+
 
     const [newTweet, setNewTweet] = useState('');
 
     const handleTweet = () => {
-		dispatch(addNewTweet({tweetContent : newTweet, firstname : firstname , username : username, profilPicture : profilPicture }))
+		dispatch(addNewTweet({tweetContent : newTweet, firstname : firstname , username : username, token : token }))
     setNewTweet('');
 	};
 

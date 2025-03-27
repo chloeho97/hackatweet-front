@@ -4,9 +4,7 @@ import LastTweets from './LastTweets'
 import { useSelector, useDispatch } from 'react-redux';
 import Login from './Login'
 import { logout } from '../reducers/users';
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+
 
 /* import { useSelector } from 'react-redux';
  */
@@ -20,14 +18,17 @@ const handleLogout = () => {
   dispatch(logout())
 }
 
+  // Utilisé pour afficher soit la page Login soit la homepage
   const isConnected = useSelector((state) => state.users.value.token);
+
+  // Utilisé pour afficher les infos User en bas à gauche
   const username =  useSelector((state) => state.users.value.username);
   const firstname =  useSelector((state) => state.users.value.firstname);
 
-  const tweets = useSelector((state) => state.tweets.value)
+  const tweets = useSelector((state) => state.tweets.value);
 
   const lastTweetsComponents = tweets.map((data, i) => {
-    return <LastTweets key={i} firstname={data.firstname} username={data.username} id={data.id} profilPicture={data.profilPicture} />;
+    return <LastTweets key={i} firstname={data.firstname} username={data.username} id={data.id} profilPicture={data.profilPicture} tweetContent={data.tweetContent} token={data.token} />;
 });
 
   return (
@@ -73,9 +74,7 @@ const handleLogout = () => {
           </div>
 
           <div>
-        {/* {lastTweetsComponents} */}
-        <p>CENTER PART 2</p>
-
+        { lastTweetsComponents }
           </div>
 
         </div>

@@ -5,10 +5,11 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import tweets from '../reducers/tweets';
 import users from '../reducers/users';
+import likedTweet from '../reducers/likedTweet';
 
 
 const store = configureStore({
-  reducer: { tweets, users },
+  reducer: { tweets, users, likedTweet},
 });
 
 

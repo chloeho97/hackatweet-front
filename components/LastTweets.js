@@ -1,55 +1,89 @@
 import styles from '../styles/LastTweets.module.css';
-import { useEffect, useState } from 'react';
+/* import { useEffect, useState } from 'react'; */
 import { useDispatch, useSelector } from 'react-redux';
-import { likedTweet } from '../reducers/likedTweet'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faTrash } from '@fortawesome/free-solid-svg-icons';
+import {likedTweet} from '../reducers/likedTweet'; 
+import {removeTweet} from '../reducers/tweets'; 
+
+
 
 
 function LastTweets(props) {
 
-/* const handleLike = () => {
-  props.
-} */
 
   const dispatch = useDispatch();
-  const likedTweet = useSelector((state) => state.likedTweet.value);
 
-  const isLiked = likedTweets.includes(props.id); 
-
+// Fonctionnalité de like
+ const tweetsLiked = useSelector((state) => state.likedTweet.value); 
+ const isLiked = tweetsLiked.some((tweet) => tweet.id === props.id);
   const handleLike = () => {
-    dispatch(likedTweet(props.id))
-  }
+      dispatch(likedTweet({ id : props.id}))
+    }
+  
 
+// Fonctionnalité de suppression de tweet
+
+const tokenActualUser = useSelector((state) => state.users.value.token); 
+
+const rightToRemove = () => {
+if (tokenActualUser === props.token) {
+return true
+} else {
+  return false
+}}
+
+    // Permet de ne pas supprimer l'ensemble des tweets faits par un même user
+const handleRemove = () => {
+  dispatch(removeTweet({id: props.id, token: props.token}))
+}
+
+// Afficher depuis quand le tweet a été posté 
   const formatTimeSince = (timestamp) => {
     const now = Date.now(); // Obtenir le temps actuel en millisecondes
     const timeSince = now - timestamp; // Différence entre maintenant et le timestamp
   
     const minutes = Math.floor(timeSince / 60000); 
     const hours = Math.floor(minutes / 60); 
-  
+
+    if (timeSince < 60000) { // Moins d'une minute
+      return ` a few seconds` } 
     if (timeSince < 3600000) { // Moins d'une heure
       return `${minutes} minutes`;
     } else {
-      return `${hours} heures`; // Arrondi à l'heure inférieure
+      return `${hours} hours`; // Arrondi à l'heure inférieure
     }
   };
 
+
   return (
-    <div>
+    <div className={styles.main}>
+
     <div className={styles.headerTweet}>
       <div className={styles.profilIcon}>
         <img src="./profilPicture.jpg" className={styles.profilPictureIcon} />
       </div>  
-      {props.firstname}      
-      {props.username}   
-      <div> Il y a {formatTimeSince(props.id)} </div>
+      <div className={styles.firstname}>{props.firstname} </div>
+      <div className={styles.username}>@{props.username}  </div>
+      <div className={styles.timestamp}> <span>•</span>{formatTimeSince(props.id)} </div>
     </div>
+
     <div className={styles.tweetContent}>
       {props.tweetContent}
     </div>
+    
     <div className={styles.tweetLike}>
-      <span><FontAwesomeIcon icon={faHeart} onClick={() => handleLike()}             className={isLiked ? styles.liked : styles.unliked}  /></span>
+    <span><FontAwesomeIcon icon={faHeart} onClick={() => handleLike()}             
+      className={isLiked ? styles.liked : styles.unliked} style={{ cursor: 'pointer' }}  />  </span>
+
+
+    {rightToRemove() ? (
+          <span><FontAwesomeIcon icon={faTrash} onClick={() => handleRemove()}             
+        style={{ cursor: 'pointer' }}  />  </span>
+    ) : null }
+    
     </div>
-</div> 
+    </div> 
   );
 }
 

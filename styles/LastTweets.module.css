@@ -1,4 +1,10 @@
 /* A COPIER DANS LAST TWEET MODULE CSS */
+.main {
+  padding : 5vh;
+  border : 1px solid grey;
+}
+
+
 
 .profilIcon {
     width: 40px; 
@@ -6,6 +12,7 @@
     border-radius: 50%; 
     overflow: hidden;
     display: flex;
+    margin-right: 1vh;
   }
   
   .profilPitureIcon {
@@ -26,3 +33,23 @@
   .unliked {
     color:white;
   }
+
+  .tweetContent {
+    padding : 20px 0px;
+  }
+
+  .firstname {
+    font-weight: bolder;
+    color: white;
+  } 
+
+  .username {
+    color:grey;
+    margin-left: 10px;
+  }
+
+  .timestamp {
+    color:grey;
+  } 
+
+  
