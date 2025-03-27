@@ -24,7 +24,7 @@ function SignIn() {
           dispatch(
             login({
               username: signInUsername,
-              firstname: data.token,
+              firstname: data.firstname,
               token: data.token,
             })
           );
