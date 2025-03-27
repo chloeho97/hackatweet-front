@@ -1,0 +1,55 @@
+/* .newTweetContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    width: 85%; 
+    padding-left: 20px;
+}
+
+
+.barBottom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+ */
+
+
+ .newTweetContainer {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin : auto;
+}
+
+.barBottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.btnTweet {
+    background-color: #3E9AF0;
+    border: none;
+    color: white;
+    border-radius: 50px; 
+    padding: 0px 24px;
+    font-size: 14px;
+    height: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tweetBar {
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 10px; 
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom:  2px solid grey;
+}

@@ -15,9 +15,9 @@ function LastTweets(props) {
         <div className={styles.tweetContent}>
             {props.tweetContent}
         </div>
-        <div className={styles.tweetLike}>
-            {props.TweeCcontent}
-        </div>
+{/*         <div className={styles.tweetLike}>
+            {props.content}
+        </div> */}
     </div>
   );
 }

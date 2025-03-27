@@ -5,14 +5,14 @@ import { addNewTweet } from '../reducers/tweets';
 
 function Tweet() {
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 	const tweets = useSelector((state) => state.tweets.value);
 
     const [newTweet, setNewTweet] = useState('');
 
     const handleTweet = () => {
-		dispatch(addNewTweet(newTweet))
-        setNewTweet('');
+		dispatch(addNewTweet({tweetContent : newTweet, firstname : firstname , username : username, profilPicture : profilPicture }))
+    setNewTweet('');
 	};
 
     let countCaracter = () => {
@@ -26,11 +26,16 @@ function Tweet() {
         <h1 className={styles.title}>
           HOME
         </h1>
-        <input type="text" placeholder="What's up" id="newTweet"  maxlength="280" onChange={(e) => setNewTweet(e.target.value)} value={newTweet} />
-        <div>
-        <p> {countCaracter()}/ 280</p>
-        <button id="addNewTweet" onClick={() => handleTweet()}>Tweet</button>
+        
+        <div className={styles.newTweetContainer}>
+          <input className={styles.tweetBar} type="text" placeholder="What's up" id="newTweet"  maxlength="280" onChange={(e) => setNewTweet(e.target.value)} value={newTweet} />
+          <div className={styles.barBottom}>
+            <p> {countCaracter()}/ 280</p>
+            <button className={styles.btnTweet} id="addNewTweet" onClick={() => handleTweet()}>Tweet</button>
+          </div>
+
         </div>
+
       </main>
     </div>
   );
