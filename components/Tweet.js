@@ -1,12 +1,12 @@
 import styles from '../styles/Tweet.module.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewTweet } from '../reducers/tweets';
 
 function Tweet() {
 
     const dispatch = useDispatch();
-	const user = useSelector((state) => state.user.value);
+	const tweets = useSelector((state) => state.tweets.value);
 
     const [newTweet, setNewTweet] = useState('');
 
