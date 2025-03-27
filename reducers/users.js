@@ -9,11 +9,11 @@ export const usersSlice = createSlice({
 	initialState,
 	reducers: {
 	login : (state, action) => {
-			state.value.push({
+			state.value = {
 				firstname : action.payload.firstname,
 				username : action.payload.username,
 				token : action.payload.token, 
-				});
+				};
 		},
 	    logout: (state) => {
 			state.value.token = null;
