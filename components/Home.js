@@ -6,10 +6,6 @@ import Login from './Login'
 import { logout } from '../reducers/users';
 
 
-/* import { useSelector } from 'react-redux';
- */
-
-
 function Home() {
 
 const dispatch = useDispatch();
@@ -27,14 +23,20 @@ const handleLogout = () => {
 
   const tweets = useSelector((state) => state.tweets.value);
 
+
+  // Props pour afficher les derniers tweets
   const lastTweetsComponents = tweets.map((data, i) => {
     return <LastTweets key={i} firstname={data.firstname} username={data.username} id={data.id} profilPicture={data.profilPicture} tweetContent={data.tweetContent} token={data.token} />;
 });
 
+
   return (
     <div>
 
-      {!isConnected ? ( <Login /> ) : ( <main className={styles.main}>
+    {/*   Si client pas connecté, donc pas de token, affichage de la page SignIn ou SignUp. Si connecté, affichage homepage avec tweet */}
+
+      {!isConnected ? ( <Login /> ) : 
+      ( <main className={styles.main}>
 
         {/* HOME - LEFT */}
 

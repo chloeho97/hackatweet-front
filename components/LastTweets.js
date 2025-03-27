@@ -1,5 +1,4 @@
 import styles from '../styles/LastTweets.module.css';
-/* import { useEffect, useState } from 'react'; */
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -33,12 +32,12 @@ return true
   return false
 }}
 
-    // Permet de ne pas supprimer l'ensemble des tweets faits par un même user
+    // Permet de ne pas supprimer l'ensemble des tweets faits par un même user (uniquement le tweet sur lequel il clique)
 const handleRemove = () => {
   dispatch(removeTweet({id: props.id, token: props.token}))
 }
 
-// Afficher depuis quand le tweet a été posté 
+// Afficher de depuis quand le tweet a été posté 
   const formatTimeSince = (timestamp) => {
     const now = Date.now(); // Obtenir le temps actuel en millisecondes
     const timeSince = now - timestamp; // Différence entre maintenant et le timestamp
@@ -76,7 +75,7 @@ const handleRemove = () => {
     <span><FontAwesomeIcon icon={faHeart} onClick={() => handleLike()}             
       className={isLiked ? styles.liked : styles.unliked} style={{ cursor: 'pointer' }}  />  </span>
 
-
+   {/*  Affichage de l'icone 'trash' si le user connecté est celui qui a twitté  */}
     {rightToRemove() ? (
           <span><FontAwesomeIcon icon={faTrash} onClick={() => handleRemove()}             
         style={{ cursor: 'pointer' }}  />  </span>

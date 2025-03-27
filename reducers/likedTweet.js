@@ -10,11 +10,11 @@ export const likedTweetSlice = createSlice({
 	reducers: {
 		likedTweet: (state, action) => {
 			const isAlreadyLiked = state.value.some((tweet) => tweet.id === action.payload.id);
-	  
+			  // si déjà liké, dé-liker le tweet au clic sur le coeur
 			if (isAlreadyLiked) {
 			  state.value = state.value.filter((tweet) => tweet.id !== action.payload.id);
 			} else {
-			  // Ajoute le tweet liké
+			  // Ajoute le tweet liké au clic sur le coeur
 			  state.value.push({ id: action.payload.id });
 			}
 		  },

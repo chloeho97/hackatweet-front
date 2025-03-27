@@ -1,22 +1,3 @@
-/* .newTweetContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; 
-    width: 85%; 
-    padding-left: 20px;
-}
-
-
-.barBottom {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-
-
- */
-
 
  .newTweetContainer {
     display: flex;

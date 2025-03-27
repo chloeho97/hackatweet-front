@@ -26,6 +26,9 @@
     align-items: center;
   }
 
+
+  /* Style de l'icon "like" en fonction du booléan */
+
   .liked {
     color : red;
   }
@@ -34,6 +37,8 @@
     color:white;
   }
 
+
+  
   .tweetContent {
     padding : 20px 0px;
   }
