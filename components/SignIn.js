@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "../reducers/user";
+import { login } from "../reducers/users";
 import styles from "../styles/login.module.css";
 
 function SignIn() {
   const dispatch = useDispatch();
 
   const [signInUsername, setSignInUsername] = useState("");
-  const [signUpFirstname, setSignUpFirstname] = useState("");
   const [signInPassword, setSignInPassword] = useState("");
 
   const handleConnection = () => {
