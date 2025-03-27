@@ -32,7 +32,7 @@ function Login() {
     return (
       <div className={styles.loginRight}>
         <div className={styles.slider}>
-          <Image src="/background_img.jpg" alt="background_img" layout="fill" />
+          {/* <Image src="/background_img.jpg" alt="background_img" layout="fill" /> */}
         </div>
         <div className={styles.elementContainer}>
           <h1 className={styles.h1}>See What's happening</h1>
