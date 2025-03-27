@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Modal } from "antd";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
+import Image from "next/image";
 
 function Login() {
   const user = useSelector((state) => state.users.value);
@@ -30,7 +31,10 @@ function Login() {
 
     return (
       <div className={styles.loginRight}>
-        <div className={styles.logoContainer}>
+        <div className={styles.slider}>
+          <Image src="/background_img.jpg" alt="background_img" layout="fill" />
+        </div>
+        <div className={styles.elementContainer}>
           <h1 className={styles.h1}>See What's happening</h1>
           <h2 className={styles.h2}>Join Hackatweet today.</h2>
         </div>
