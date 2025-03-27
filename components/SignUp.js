@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "../reducers/user";
+import { login } from "../reducers/users";
 import styles from "../styles/login.module.css";
 
-function SignUp() {
+function signUp() {
   const dispatch = useDispatch();
 
   const [signUpUsername, setSignUpUsername] = useState("");
@@ -49,6 +49,13 @@ function SignUp() {
           value={signUpUsername}
         />
         <input
+          type="text"
+          placeholder="Firstname"
+          id="signUpFirstname"
+          onChange={(e) => setSignUpFirstname(e.target.value)}
+          value={signUpFirstname}
+        />
+        <input
           type="password"
           placeholder="Password"
           id="signUpPassword"
@@ -63,4 +70,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default signUp;
