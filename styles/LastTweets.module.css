@@ -55,6 +55,16 @@
 
   .timestamp {
     color:grey;
+    margin-left: 1vh;
   } 
 
   
+  .hashtag {
+    color: #3E9AF0;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .hashtag:hover {
+    text-decoration: underline;
+  }

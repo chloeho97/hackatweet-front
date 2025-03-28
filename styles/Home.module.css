@@ -86,11 +86,13 @@
 
 
 .userFirstname {
-  color : white
+  color : white;
+  font-weight: bolder;
 }
 
 .userUsername {
   color: grey;
+  margin-top : 3%;
 }
 
 
