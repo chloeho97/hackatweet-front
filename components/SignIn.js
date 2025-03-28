@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../reducers/users";
-import styles from "../styles/Login.module.css";
+import styles from "../styles/SignIn.module.css";
 
 function SignIn() {
   const dispatch = useDispatch();
@@ -37,24 +37,35 @@ function SignIn() {
   return (
     <div>
       <div className={styles.registerSection}>
-        <p>Sign-in</p>
-        <input
-          type="text"
-          placeholder="Username"
-          id="signInUsername"
-          onChange={(e) => setSignInUsername(e.target.value)}
-          value={signInUsername}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          id="signInPassword"
-          onChange={(e) => setSignInPassword(e.target.value)}
-          value={signInPassword}
-        />
-        <button id="connection" onClick={() => handleConnection()}>
-          Connect
-        </button>
+        <img src="/icon.png" alt="icon_img" className={styles.icon} />
+        <p className={styles.titleModal}>Connect to your Hackatweet account</p>
+        <div className={styles.input}>
+          <input
+            className={styles.inputElement}
+            type="text"
+            placeholder="Username"
+            id="signInUsername"
+            onChange={(e) => setSignInUsername(e.target.value)}
+            value={signInUsername}
+          />
+          <input
+            className={styles.inputElement}
+            type="password"
+            placeholder="Password"
+            id="signInPassword"
+            onChange={(e) => setSignInPassword(e.target.value)}
+            value={signInPassword}
+          />
+        </div>
+        <div className={styles.btnContainer}>
+          <button
+            id="connection"
+            className={styles.btnRegister}
+            onClick={() => handleConnection()}
+          >
+            Sign in
+          </button>
+        </div>
       </div>
     </div>
   );
