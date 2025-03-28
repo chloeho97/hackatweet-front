@@ -1,14 +1,27 @@
-.loginRight{
+.elementContainer{
   background-color: #0B1215;
   height: 100vh;
   color: white;
-}
-
-/* .elementContainer{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   
-
+  
+}
+.container{
+  display: flex;
+}
+/* .image {
+    width: 30vw;
 } */
 
-.slider {
-  width: 50px;
+.registerBtn{
+  background-color: #3E9AF0;
+  border: none;
+  color: white;
+  border-radius: 50px; 
+  padding: 0px 24px;
+  font-size: 14px;
+  height: 25px;
+  font-weight: bold;
+  cursor: pointer;
 }
+

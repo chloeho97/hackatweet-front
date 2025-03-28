@@ -30,50 +30,59 @@ function Login() {
     }
 
     return (
-      <div className={styles.loginRight}>
-        <div className={styles.slider}>
-          {/* <Image src="/background_img.jpg" alt="background_img" layout="fill" /> */}
+      <div className={styles.container}>
+        <div className={styles.imageContainer}>
+          {/* <img
+            src="/background_img.jpg"
+            alt="background_img"
+            className={styles.image}
+          /> */}
         </div>
         <div className={styles.elementContainer}>
-          <h1 className={styles.h1}>See What's happening</h1>
+          <h1 className="underline">See What's happening</h1>
           <h2 className={styles.h2}>Join Hackatweet today.</h2>
+
+          <button
+            id="register"
+            className={styles.registerBtn}
+            onClick={() => showSignUpModal()}
+          >
+            Sign up
+          </button>
+
+          <div> Already have account ?</div>
+
+          <button id="connection" onClick={() => showSignInModal()}>
+            Sign in
+          </button>
+          {isSignUpModalVisible && (
+            <div id="react-modals">
+              <Modal
+                getContainer="#react-modals"
+                className={styles.modal}
+                visible={isSignUpModalVisible}
+                closable={false}
+                footer={null}
+              >
+                {signupModalContent}
+              </Modal>
+            </div>
+          )}
+
+          {isSignInModalVisible && (
+            <div id="react-modals">
+              <Modal
+                getContainer="#react-modals"
+                className={styles.modal}
+                visible={isSignInModalVisible}
+                closable={false}
+                footer={null}
+              >
+                {signInModalContent}
+              </Modal>
+            </div>
+          )}
         </div>
-        <button id="register" onClick={() => showSignUpModal()}>
-          Sign up
-        </button>
-
-        <div> Already have account ?</div>
-
-        <button id="connection" onClick={() => showSignInModal()}>
-          Sign in
-        </button>
-        {isSignUpModalVisible && (
-          <div id="react-modals">
-            <Modal
-              getContainer="#react-modals"
-              className={styles.modal}
-              visible={isSignUpModalVisible}
-              closable={false}
-              footer={null}
-            >
-              {signupModalContent}
-            </Modal>
-          </div>
-        )}
-
-        {isSignInModalVisible && (
-          <div id="react-modals">
-            <Modal
-              getContainer="#react-modals"
-              className={styles.modal}
-              visible={isSignInModalVisible}
-              closable={false}
-              footer={null}
-            >
-              {signInModalContent}
-            </Modal>
-          </div>
-        )}
       </div>
     );
   }
