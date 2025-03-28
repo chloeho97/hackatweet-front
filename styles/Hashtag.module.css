@@ -1,0 +1,106 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  min-height: 100vh;
+  padding: 0rem;
+  background-color: #151F2B;
+  color: white;
+}
+
+.title {
+  line-height: 1.15;
+  font-size: 4rem;
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover, .title a:focus, .title a:active {
+  text-decoration: underline;
+}
+
+.homeLeft, .homeRight {
+  flex: 1; 
+  border: 0.5px solid #6d7c8e; 
+  box-sizing: border-box;
+}
+
+.homeCenter {
+  flex: 2; 
+  border: 0.5px solid #6d7c8e; 
+  box-sizing: border-box; 
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  width: 15%;
+  margin: 20px;
+}
+
+.homeLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 25px;
+  padding-left: 15px;
+}
+
+
+.userSection {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+}
+
+.userContent {
+  display: flex;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  padding-left : 10px;
+}
+
+
+.profilIcon {
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%; 
+  overflow: hidden;
+  display: flex;
+}
+
+.profilPitureIcon {
+  width: auto; 
+  height: 100%;
+  object-fit: contain; 
+  object-position: left;}
+
+
+.userFirstname {
+  color : white
+}
+
+.userUsername {
+  color: grey;
+}
+
+
+.btnLogout {
+  width : 30%;
+  background-color: #151F2B;
+  color:white;
+  border : 1px solid white;
+  margin-top : 5%;
+  margin-bottom: 5%;
+  border-radius: 50px; 
+  padding: 3px 24px;
+}
