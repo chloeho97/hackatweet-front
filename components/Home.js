@@ -4,6 +4,7 @@ import LastTweets from "./LastTweets";
 import { useSelector, useDispatch } from "react-redux";
 import Login from "./Login";
 import { logout } from "../reducers/users";
+import Trends from "./Trends";
 
 /* import { useSelector } from 'react-redux';
  */
@@ -91,7 +92,9 @@ function Home() {
           {/* HOME - RIGHT */}
           <div className={styles.homeRight}>
             <h2 className={styles.title}>Trends</h2>
-            <div></div>
+            <div>
+              <Trends tweets={tweets} />
+            </div>
           </div>
         </main>
       )}

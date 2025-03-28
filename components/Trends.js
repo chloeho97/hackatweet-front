@@ -1,13 +1,33 @@
-import styles from '../styles/Trends.module.css';
+import styles from "../styles/Trends.module.css";
 
-function Trends() {
+function Trends({ tweets }) {
+  const hashtagCounts = tweets.reduce((acc, tweet) => {
+    const hashtags =
+      typeof tweet.tweetContent === "string"
+        ? tweet.tweetContent.match(/#\w+/g) || []
+        : [];
+
+    hashtags.forEach((hashtag) => {
+      acc[hashtag] = (acc[hashtag] || 0) + 1;
+    });
+    return acc;
+  }, {});
+
+  // Tri des hashtags par fréquence d'utilisation
+  const sortedHashtags = Object.entries(hashtagCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 5); // On affiche seulement les 5 premiers trends
+
   return (
-    <div>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-      </main>
+    <div className={styles.trendContainer}>
+      <ul>
+        {sortedHashtags.map(([hashtag, count]) => (
+          <li key={hashtag} className={styles.trendsBlock}>
+            <span className={styles.trendsHashtag}>{hashtag} </span>
+            <div className={styles.trendsCount}>{count} tweets</div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
