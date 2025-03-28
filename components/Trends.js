@@ -1,10 +1,6 @@
 import styles from "../styles/Trends.module.css";
 
 function Trends({ tweets }) {
-  // const handleClick = (hashtag) => {
-  //   `/hashtag/${hashtag.replace("#", "")}`; // Supprime # pour l'URL
-  // };
-
   const hashtagCounts = tweets.reduce((acc, tweet) => {
     const hashtags =
       typeof tweet.tweetContent === "string"
@@ -27,12 +23,7 @@ function Trends({ tweets }) {
       <ul>
         {sortedHashtags.map(([hashtag, count]) => (
           <li key={hashtag} className={styles.trendsBlock}>
-            <span
-              className={styles.trendsHashtag}
-              onClick={() => handleClick(hashtag)}
-            >
-              {hashtag}{" "}
-            </span>
+            <span className={styles.trendsHashtag}>{hashtag} </span>
             <div className={styles.trendsCount}>{count} tweets</div>
           </li>
         ))}

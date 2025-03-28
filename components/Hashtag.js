@@ -6,8 +6,17 @@ import Login from "./Login";
 import { logout } from "../reducers/users";
 import Trends from "./Trends";
 // import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import Hashtag from "./Hashtag";
+import LastTweets from "./LastTweets";
 
 function Hashtag() {
+  const { hashtag } = useParams(); // Récupère le hashtag depuis l'URL
+  const filteredTweets = tweets.filter((tweet) =>
+    tweet.tweetContent.includes(`#${hashtag}`)
+  );
+
   const dispatch = useDispatch();
   // const [selectedHashtag, setSelectedHashtag] = useState(null);
 
@@ -80,10 +89,36 @@ function Hashtag() {
           {/* HOME - CENTER */}
           <div className={styles.homeCenter}>
             <h2 className={styles.title}>Hashtag</h2>
-
             <div>
-              <Tweet />
+              <h2>Tweets contenant #{hashtag}</h2>
+              {filteredTweets.length > 0 ? (
+                filteredTweets.map((tweet, i) => (
+                  <LastTweets
+                    key={i}
+                    firstname={tweet.firstname}
+                    username={tweet.username}
+                    id={tweet.id}
+                    profilPicture={tweet.profilPicture}
+                    tweetContent={tweet.tweetContent}
+                    token={tweet.token}
+                  />
+                ))
+              ) : (
+                <p>Aucun tweet trouvé avec ce hashtag.</p>
+              )}
             </div>
+
+            {/* <div>
+              <Router>
+                <Routes>
+                  <Route path="/" element={<Trends tweets={tweets} />} />
+                  <Route
+                    path="/hashtag/:hashtag"
+                    element={<Hashtag tweets={tweets} />}
+                  />
+                </Routes>
+              </Router>
+            </div> */}
 
             <div>{lastTweetsComponents}</div>
           </div>
