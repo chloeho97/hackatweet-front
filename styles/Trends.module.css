@@ -1,0 +1,23 @@
+.trendsHashtag{
+font-weight: 600;
+}
+
+.trendsBlock{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.trendsCount{
+  color: gray;
+  font-size: 0.8em;
+}
+
+.trendContainer{
+  background-color: #232D3A;
+  border-radius: 0.8em;
+  padding: 1em;
+  width: 17em;
+  margin: 2em;
+  
+}
