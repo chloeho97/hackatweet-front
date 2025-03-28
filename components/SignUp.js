@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../reducers/users";
-import styles from "../styles/login.module.css";
+import styles from "../styles/Login.module.css";
 
 function signUp() {
   const dispatch = useDispatch();
