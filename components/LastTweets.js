@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { likedTweet } from "../reducers/likedTweet";
 import { removeTweet } from "../reducers/tweets";
+import Link from "next/link";
 
 function LastTweets(props) {
   const dispatch = useDispatch();
@@ -39,13 +40,13 @@ function LastTweets(props) {
       if (hashtagRegex.test(word)) {
         const hashtag = word.replace("#", ""); // Supprime le # pour l'URL
         return (
-          <a
+          <Link
             key={index}
             href={`/hashtag/${hashtag}`}
-            className={styles.hashtag}
+            passHref // Passe explicitement le href à l'élément enfant
           >
-            {word}
-          </a>
+            <a className={styles.hashtag}>{word}</a>
+          </Link>
         );
       }
       return word + " "; // Conserve le texte normal
