@@ -93,6 +93,9 @@ function Login() {
                 footer={null}
                 closable={true} // Affiche une croix par défaut pour fermer
                 onCancel={closeSignInModal} // Ferme la modal
+                style={{
+                  padding: "0", // Ajuste ou supprime le padding
+                }}
               >
                 {signInModalContent}
               </Modal>

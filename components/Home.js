@@ -52,7 +52,7 @@ function Home() {
 
           <div className={styles.homeLeft}>
             <div>
-              <img className={styles.logo} src="./twitter-logo.png" />
+              <img className={styles.logo} src="./icon.png" />
             </div>
 
             <div className={styles.userSection}>
