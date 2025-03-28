@@ -73,7 +73,11 @@
 
 
 .modal {
-  color: white; /* Texte en blanc */
   border: none;
+  color: white;
 }
 
+.ant-modal .ant-modal-content {
+  padding: 0 !important; /* Supprime le padding */
+  border: none !important; /* Supprime la bordure */
+}
