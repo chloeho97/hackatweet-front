@@ -1,17 +1,22 @@
 .elementContainer{
-  background-color: #0B1215;
+  background-color: #151F2B;
   height: 100vh;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  
-  
+  flex:1.5;
 }
+
+.imageContainer {
+  flex:1
+}
+
 .container{
   display: flex;
 }
-/* .image {
-    width: 30vw;
-} */
+
+.image {
+    width: 100%;
+}
 
 .registerBtn{
   background-color: #3E9AF0;
@@ -25,3 +30,19 @@
   cursor: pointer;
 }
 
+.signInBtn {
+  background-color: #151F2B;
+  border: none;
+  color: #3E9AF0;
+  border-radius: 50px; 
+  padding: 0px 24px;
+  font-size: 14px;
+  height: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 0.5px solid grey;
+}
+
+.underline {
+  font-size: 60px;
+}
