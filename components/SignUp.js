@@ -11,7 +11,7 @@ function signUp() {
   const [signUpPassword, setSignUpPassword] = useState("");
 
   const handleRegister = () => {
-    fetch("http://localhost:3000/users/signup", {
+    fetch("https://hackatweet-back-zeta.vercel.app/users/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
