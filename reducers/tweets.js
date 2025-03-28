@@ -8,16 +8,21 @@ export const tweetsSlice = createSlice({
 	name: 'tweets',
 	initialState,
 	reducers: {
+		// Au clic sur 'Tweeter'
 		addNewTweet: (state, action) => {
 			state.value.push({
 				firstname : action.payload.firstname,
 				username : action.payload.username,
 				tweetContent : action.payload.tweetContent,
+				token : action.payload.token,
 				id : Date.now(), // Unique ID pour chaque tweet
 				});
 		},
-		removeTweet: (state,action) => {
-		state.value = state.value.filter(tweet => tweet.id !== action.payload.title);
+		// Au clic sur icone 'trash"
+		removeTweet: (state, action) => {
+			state.value = state.value.filter(
+				tweet => !(tweet.id === action.payload.id && tweet.token === action.payload.token)
+			);
 		}
 	},
 });

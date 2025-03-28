@@ -6,18 +6,26 @@ import { addNewTweet } from '../reducers/tweets';
 function Tweet() {
 
   const dispatch = useDispatch();
-	const tweets = useSelector((state) => state.tweets.value);
 
-    const [newTweet, setNewTweet] = useState('');
 
-    const handleTweet = () => {
-		dispatch(addNewTweet({tweetContent : newTweet, firstname : firstname , username : username, profilPicture : profilPicture }))
-    setNewTweet('');
-	};
+  const username =  useSelector((state) => state.users.value.username);
+  const firstname =  useSelector((state) => state.users.value.firstname);
+  const token =  useSelector((state) => state.users.value.token);
+  
+  const [newTweet, setNewTweet] = useState('');
 
+
+
+  // Afficher le nombre de caractère utilisé dans le tweet , avant envoi dans le reducer
     let countCaracter = () => {
         return newTweet.length;
     };
+
+  // Envoi dans le reducer des nouveaux tweets dès le clic sur 'tweeter'
+  const handleTweet = () => {
+  dispatch(addNewTweet({tweetContent : newTweet, firstname : firstname , username : username, token : token }))
+  setNewTweet('');
+  };
 
 
   return (
