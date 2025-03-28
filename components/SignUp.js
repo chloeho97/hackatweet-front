@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../reducers/users";
-import styles from "../styles/Login.module.css";
+import styles from "../styles/SignUp.module.css";
 
 function signUp() {
   const dispatch = useDispatch();
@@ -40,31 +40,43 @@ function signUp() {
   return (
     <div className={styles.registerContainer}>
       <div className={styles.registerSection}>
-        <p>Sign-up</p>
-        <input
-          type="text"
-          placeholder="Username"
-          id="signUpUsername"
-          onChange={(e) => setSignUpUsername(e.target.value)}
-          value={signUpUsername}
-        />
-        <input
-          type="text"
-          placeholder="Firstname"
-          id="signUpFirstname"
-          onChange={(e) => setSignUpFirstname(e.target.value)}
-          value={signUpFirstname}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          id="signUpPassword"
-          onChange={(e) => setSignUpPassword(e.target.value)}
-          value={signUpPassword}
-        />
-        <button id="register" onClick={() => handleRegister()}>
-          Register
-        </button>
+        <img src="/icon.png" alt="icon_img" className={styles.icon} />
+        <p className={styles.titleModal}>Create your Hackatweet account</p>
+        <div className={styles.input}>
+          <input
+            className={styles.inputElement}
+            type="text"
+            placeholder="Username"
+            id="signUpUsername"
+            onChange={(e) => setSignUpUsername(e.target.value)}
+            value={signUpUsername}
+          />
+          <input
+            className={styles.inputElement}
+            type="text"
+            placeholder="Firstname"
+            id="signUpFirstname"
+            onChange={(e) => setSignUpFirstname(e.target.value)}
+            value={signUpFirstname}
+          />
+          <input
+            className={styles.inputElement}
+            type="password"
+            placeholder="Password"
+            id="signUpPassword"
+            onChange={(e) => setSignUpPassword(e.target.value)}
+            value={signUpPassword}
+          />
+        </div>
+        <div className={styles.btnContainer}>
+          <button
+            id="register"
+            className={styles.btnRegister}
+            onClick={() => handleRegister()}
+          >
+            Register
+          </button>
+        </div>
       </div>
     </div>
   );

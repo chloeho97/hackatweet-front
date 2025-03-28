@@ -5,7 +5,6 @@ import { Modal } from "antd";
 import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 
-
 function Login() {
   const user = useSelector((state) => state.users.value);
 
@@ -20,6 +19,14 @@ function Login() {
     setIsSignInModalVisible(true);
   };
 
+  const closeSignUpModal = () => {
+    setIsSignUpModalVisible(false);
+  };
+
+  const closeSignInModal = () => {
+    setIsSignInModalVisible(false);
+  };
+
   let signupModalContent;
   if (!user.token) {
     signupModalContent = <SignUp />;
@@ -31,61 +38,67 @@ function Login() {
 
     return (
       <div className={styles.container}>
-                <div className={styles.imageContainer}>
-                  <img
-                    src="/background_img.jpg"
-                    alt="background_img"
-                    className={styles.image}
-                  /> 
-                </div>
-                <div className={styles.elementContainer}>
-                  <h1 className={styles.underline}>See What's happening</h1>
-                  <h2 className={styles.h2}>Join Hackatweet today.</h2>
+        <div className={styles.imageContainer}>
+          <img
+            src="/background_img.png"
+            alt="background_img"
+            className={styles.image}
+          />
+        </div>
+        <div className={styles.elementContainer}>
+          <img src="/icon.png" alt="icon_img" className={styles.icon} />
+          <h1 className={styles.underline}>See what's happening</h1>
+          <h2 className={styles.h2}>Join Hackatweet today.</h2>
 
-                  <button
-                    id="register"
-                    className={styles.registerBtn}
-                    onClick={() => showSignUpModal()}
-                  >
-                    Sign up
-                  </button>
+          <div className={styles.elementSign}>
+            <button
+              id="register"
+              className={styles.registerBtn}
+              onClick={() => showSignUpModal()}
+            >
+              Sign up
+            </button>
+            <div> Already have account ?</div>
 
-                  <div> Already have account ?</div>
+            <button
+              id="connection"
+              className={styles.signInBtn}
+              onClick={() => showSignInModal()}
+            >
+              Sign in
+            </button>
+          </div>
 
-                  <button 
-                  id="connection" 
-                  className={styles.signInBtn}
-                  onClick={() => showSignInModal()}>
-                    Sign in
-                  </button>
-                  {isSignUpModalVisible && (
-                    <div id="react-modals">
-                      <Modal
-                        getContainer="#react-modals"
-                        className={styles.modal}
-                        visible={isSignUpModalVisible}
-                        closable={false}
-                        footer={null}
-                      >
-                        {signupModalContent}
-                      </Modal>
-                    </div>
-                  )}
+          {isSignUpModalVisible && (
+            <div id="react-modals">
+              <Modal
+                getContainer="#react-modals"
+                className={styles.modal}
+                visible={isSignUpModalVisible}
+                footer={null}
+                closable={true} // Affiche une croix par défaut pour fermer
+                onCancel={closeSignUpModal} // Ferme la modal
+              >
+                {signupModalContent}
+              </Modal>
+            </div>
+          )}
 
-                  {isSignInModalVisible && (
-                    <div id="react-modals">
-                      <Modal
-                        getContainer="#react-modals"
-                        className={styles.modal}
-                        visible={isSignInModalVisible}
-                        closable={false}
-                        footer={null}
-                      >
-                        {signInModalContent}
-                      </Modal>
-                    </div>
-                  )}
-                </div>
+          {isSignInModalVisible && (
+            <div id="react-modals">
+              <Modal
+                getContainer="#react-modals"
+                className={styles.modal}
+                visible={isSignInModalVisible}
+                footer={null}
+                closable={true} // Affiche une croix par défaut pour fermer
+                onCancel={closeSignInModal} // Ferme la modal
+              >
+                {signInModalContent}
+              </Modal>
+            </div>
+          )}
+        </div>
       </div>
     );
   }

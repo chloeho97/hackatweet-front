@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'Mont-Heavy';
+    src: url('/Mont-HeavyDEMO.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+
+.registerSection {
+    background-color: #151F2B;;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputElement {
+    width: 50%;
+    background-color: #151F2B;
+    border: 0.5px solid grey;
+    padding: 2%;
+    margin: 2%;
+    color: white;
+}
+
+.btnRegister {
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: black;
+    border-radius: 50px; 
+    padding: 0px 24px;
+    height: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 50%;
+}
+
+.icon {
+    width: 15%;
+    display: flex;
+    margin: auto;
+    padding-top: 7%;
+}
+
+.titleModal {
+    text-align: center;
+    font-family:'Mont-Heavy';
+}
+
+.btnContainer {
+    display: flex;
+    justify-content: center;
+}
